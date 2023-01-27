@@ -16,14 +16,16 @@ export const users = createSlice({
         { id: 2, name: 'User2' },
     ] as User[], // 필수로 타입 지정 안해도 되지만, 확실히 하기로 한다.
     reducers: {
+
+        // Redux Toolkit에서의 action 사용 방법 (타입지정 필수)
         addUser(state, action: PayloadAction<User>) {
             action.payload.id = tempId++;
             // 업데이트 되는 State 를 return 해준다.
-            return [...state, action.payload];
+            return [...state, action.payload]; // 배열, 오브젝트형 불변성을 지켜야해서 복사본 문법 사용 [...state, ]
         }
     }
 });
 
-// 액션과 리듀서를 export 해준다. 이건 그냥 따라하면 된다.
+// 액션과 리듀서를 export
 export const { addUser } = users.actions;
 export default users.reducer;

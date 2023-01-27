@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from "react";
-import { BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navigation from "../components/Navigation";
-import Main from "../components/main";
-import Board from "../components/board";
-import Login from "../components/login";
+import Main from "../components/Main";
+import Board from "../components/Board";
+import Login from "../components/Login";
 
 const AppRouter = () => {
     return (

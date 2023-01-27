@@ -4,6 +4,9 @@ import AppRouter from "./router/AppRouter"; // root router 파일 (아직 분리
 import { useDispatch, useSelector } from 'react-redux';
 import { ReducerType } from './Redux/rootReducer';
 import { User, addUser } from './Redux/Slices/users';
+import Navigation from "./components/Navigation";
+
+
 
 function App() {
 
@@ -22,17 +25,30 @@ function App() {
         setName('');
     }
 
+    // useEffect(async () => {
+    //     dispatch(await getUserProfile({"username": String} as GithubProfile))
+    //         .then(res => {
+    //             console.log("success")
+    //             console.log(res);
+    //         })
+    //         .catch(error => {
+    //             console.log("error");
+    //             console.log(error.message);
+    //         })
+    // }, []);
+
     return (
         <>
-
             <form onSubmit={handleAddUser}>
                 <input type='text' value={name} onChange={handleChangeName} />
                 <button type='submit'>Add User</button>
             </form>
 
-            {users.map(user=> (
-                <div key={user.id}>{user.name}</div>
-            ))}
+            {
+                users.map(user => (
+                <div key = { user.id }>{ user.name }</div>
+                ))
+            }
             <AppRouter/>
         </>
 
