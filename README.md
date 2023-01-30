@@ -35,6 +35,6 @@ npm run start
 | `Redux-logger`    | 3.0.6       |                             |
 | `Router-dom`      | 6.7.0       |                             |
 | `Axios`           | 1.2.4       |                             |
-| `Bootstrap        | 5.2.3       |                             |
+| `Bootstrap`       | 5.2.3       |                             |
 | `React-Bootstrap` | 2.7.0       |                             |
 | `styled-component`| 5.3.6       |                             |
