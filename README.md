@@ -30,9 +30,11 @@ npm run start
 | `typescript`      | 4.9.4       |                             |
 | `React`           | 18.2.0      |                             |
 | `Redux`           | 4.2.0       |                             |
-| `React-redux`     | 8.0.5       | Redux - not found 오류로 인해 설치 |
+| `React-redux`     | 8.0.5       |                             |
 | `Redux-toolkit`   | 1.9.1       |                             |
 | `Redux-logger`    | 3.0.6       |                             |
 | `Router-dom`      | 6.7.0       |                             |
 | `Axios`           | 1.2.4       |                             |
+| `Bootstrap        | 5.2.3       |                             |
 | `React-Bootstrap` | 2.7.0       |                             |
+| `styled-component`| 5.3.6       |                             |
