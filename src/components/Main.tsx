@@ -1,9 +1,11 @@
-import Navigation from "./Navigation";
+import { Container } from "react-bootstrap";
 
 const Main = () => {
     return(
         <>
-            <h2>메인화면</h2>
+            <Container fluid={"md"}>
+                <h2>메인화면</h2>
+            </Container>
         </>
     )
 }
