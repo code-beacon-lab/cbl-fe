@@ -1,17 +1,33 @@
 import Github from "./Github";
-import {Container} from "react-bootstrap";
+import {Button, Container, Form} from "react-bootstrap";
+import React from "react";
 
 const Login = () => {
 
     return(
         <>
-            <Container fluid={"md"}>
+            <Container fluid={"sm"} style={{width:'500px'}}>
                 <h2>로그인 화면</h2>
-                <form>
-                    <input type="text" name={"id"}/>
-                    <input type="password" name={"pw"}/>
-                    <button type={"submit"}>로그인</button>
-                </form>
+                <Form>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>ID</Form.Label>
+                        <Form.Control type="email" placeholder="ID" />
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>PW</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
                 <Github/>{/* axios 테스트 */}
             </Container>
         </>

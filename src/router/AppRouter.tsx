@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "../components/Main";
-import Board from "../components/Board";
+import BoardList from "../components/BoardList";
 import Login from "../components/Login";
 import TestForm from "../components/TestForm";
 import Community from "../components/Community";
@@ -19,7 +19,7 @@ const AppRouter = () => {
                 <div style={styles.spaceTop}></div>
                 <Routes>
                     <Route path={"/"} element={<Main/>} />
-                    <Route path={"/board"} element={<Board/>} />
+                    <Route path={"/board"} element={<BoardList/>} />
                     <Route path={"/login"} element={<Login/>} />
                     <Route path={"/study"} element={<TestForm/>} />
                     <Route path={"/community"} element={<Community/>} />

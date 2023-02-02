@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+// 테스트 Reducer
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 export interface User {
     id: number;

@@ -1,5 +1,5 @@
 // Slices 디렉터리에 만들어둔 리듀서들을 합치는 역할을 한다.
-import { combineReducers } from "@reduxjs/toolkit";
+import {combineReducers} from "@reduxjs/toolkit";
 import users from './Slices/users';
 
 // 만들어 놓은 리듀서들을 합친다.

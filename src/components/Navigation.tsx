@@ -1,6 +1,5 @@
 import {useState} from 'react';
 import {Button, Container, Nav, Navbar} from "react-bootstrap";
-import {Link} from "react-router-dom";
 
 const Navigation = () => {
     const logo = require("../assets/images/logo.png");
