@@ -9,7 +9,7 @@ const Navigation = () => {
     return (
         <>
             <Navbar bg="light" variant="light" fixed="top">
-                <Container>
+                <Container style={{width:'900px'}}>
 
                     {/* 로고 */}
                     <Navbar.Brand href="/">

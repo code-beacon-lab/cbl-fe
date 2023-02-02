@@ -1,4 +1,5 @@
-import {Container, Pagination, Table} from "react-bootstrap";
+import {Col, Container, Pagination, Row, Table} from "react-bootstrap";
+import {CSSProperties} from "react";
 
 const Board = () => {
 
@@ -13,19 +14,67 @@ const Board = () => {
         );
     }
 
+    const boardList: CSSProperties = {
+        padding:'10px 20px',
+        // height: '50px',
+        // backgroundColor:'skyblue',
+        borderTop:'1px solid #D2D4D9',
+        borderBottom:'1px solid #D2D4D9',
+        boxSizing:'border-box',
+        // justifyContent: 'space-between'
+    }
+
+    const tagStyle: CSSProperties = {
+        borderRadius: '10px',
+        backgroundColor: '#F0F6FA',
+        color: '#5D93F9',
+        textAlign: 'center',
+        padding: '0 10px',
+        backgroundClip: 'content-box'
+    }
+
+    const rowStyle: CSSProperties = {
+        margin: '20px 0'
+    }
+
+
+
     return(
         <>
 
 
-            <Container fluid={"md"}>
+            <Container fluid={"sm"} style={{width:'900px'}}>
                 <h2>게시판 화면</h2>
-                {/*<Row>*/}
-                {/*    <Col xs={8} sm={8}>게시물 제목</Col>*/}
-                {/*    <Col xs={4} sm={4} style={{textAlign:'right'}}>2023.01.29</Col>*/}
-                {/*</Row>*/}
 
                 {/* 게시물 내용 */}
-                <Table striped bordered hover>
+                {/*<Container style={{width: '100%', height:'200px', backgroundColor:'blue'}}>*/}
+                <Row>
+                    <Col style={boardList}>
+                        <Row style={rowStyle}>{/* 작성자, 조회수, 작성일 표시 */}
+                            <Col sm={2}>작성자</Col>
+                            <Col sm={2}>920</Col>
+                            <Col sm={4}></Col>
+                            <Col sm={4} style={{textAlign:'right'}}>2023.01.28</Col>
+                        </Row>
+
+                        <Row style={rowStyle}>{/* 게시물 제목 표시 */}
+                            <Col sm={8}><a href={"#"}>게시물 제목</a></Col>
+                            <Col sm={4}></Col>
+                        </Row>
+
+
+                        <Row style={rowStyle}>{/* 태그 내용들 */}
+                            <Col sm={2} style={tagStyle}>Javascript</Col>
+                            <Col sm={2} style={tagStyle}>React</Col>
+                        </Row>
+                    </Col>
+                </Row>
+
+                {/*</Container>*/}
+
+
+                {/* 테스트 테이블 */}
+                <Table striped bordered hover style={{marginTop: '300px'}}>
                     <thead>
                     <tr>
                         <th>#</th>
