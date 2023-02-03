@@ -1,9 +1,15 @@
-import {Container, Pagination, Table} from "react-bootstrap";
+import {Col, Container, Pagination, Row} from "react-bootstrap";
 import BoardBlock from "./BoardBlock";
+import {Board} from "../Redux/Slices/board";
+import {useDispatch, useSelector} from "react-redux";
+import {ReducerType} from "../Redux/rootReducer";
+import {useState} from "react";
 
 const BoardList = () => {
 
-    // 페이징 처리
+    /**
+    * @Comment 페이징 처리
+    * */
     let active = 2;
     let items = [];
     for (let number = 1; number <= 5; number++) {
@@ -14,58 +20,41 @@ const BoardList = () => {
         );
     }
 
+    /**
+     * @Comment 게시물 받아오기(Redux)
+     * */
+
+    const board = useSelector<ReducerType, Board[]>(state => state.board);
+    const dispatch = useDispatch();
+
+    const [ getBoard, setBoard ] = useState('');
+
     return(
         <>
-            <Container fluid={"sm"} style={{width:'900px'}}>
-                <h2 style={{borderBottom:'1px solid #D2D4D9', paddingBlock: '5px'}}>게시판 화면</h2>
+            <Container fluid={"sm"}>
+                <h2 style={{borderBottom:'1px solid #D2D4D9', paddingBlock: '5px', textAlign: 'left'}}>게시판 화면</h2>
 
                 {/* 게시물 내용 */}
-                <BoardBlock/>
-                <BoardBlock/>
-                <BoardBlock/>
-                <BoardBlock/>
-                <BoardBlock/>
-                <BoardBlock/>
+                {
+                    board.map( board =>
+                        <BoardBlock
+                            key={board.board_no}    /* Key는 필수 */
+                            board={board}           /* 받아온 게시물 리스트 반복 */
+                        />
+                    )
+                }
 
-                {/* 테스트 테이블 */}
-                <Table striped bordered hover style={{marginTop: '300px'}}>
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td colSpan={2}>Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </Table>
 
                 {/* 페이징 버튼 */}
-                <Pagination style={{float:'right'}}>
-                    <Pagination.First />
-                    <Pagination.Prev />
-                    {items}
-                    <Pagination.Next />
-                    <Pagination.Last />
-                </Pagination>
+                <Row>
+                    <Pagination style={{marginTop: '30px', justifyContent: 'center', alignItems: 'center'}}>
+                        <Pagination.First />
+                        <Pagination.Prev />
+                        {items}
+                        <Pagination.Next />
+                        <Pagination.Last />
+                    </Pagination>
+                </Row>
 
 
             </Container>

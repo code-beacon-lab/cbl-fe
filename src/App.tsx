@@ -6,10 +6,10 @@ import Navigation from "./components/Navigation";
 function App() {
 
     return (
-        <>
+        <div className={"App"} style={{width:'900px', margin:'0 auto'}}>
             <Navigation />
-            <AppRouter/>
-        </>
+            <AppRouter />
+        </div>
 
     )
 }

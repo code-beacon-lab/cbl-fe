@@ -1,5 +1,46 @@
 import {Col, Row} from "react-bootstrap";
 import {CSSProperties} from "react";
+import {Board} from "../Redux/Slices/board";
+
+const BoardBlock = ({board}:{board: Board}) => {
+
+    return(
+    <Row style={{ margin: '0 auto'}}>
+        <Col style={boardList}>
+            <Row style={boardblockStyle.rowStyle}>{/* 보더블록 상단 : 작성자, 조회수, 작성일 표시 */}
+                <Col sm={10} style={{ textAlign: 'left'}}>
+                    <span>{board.board_no}</span>
+                    <span style={boardblockStyle.writer}>
+                        작성자 : {board.board_comment}
+                    </span>
+                    <span>✨920</span>
+                </Col>
+
+                <Col sm={2} style={{}}>2023.01.28</Col>
+            </Row>
+
+            <Row style={boardblockStyle.rowStyle}>{/* 보더블록 중단 : 게시물 제목 표시 */}
+                <Col sm={8} style={{ paddingBottom: '10px', textAlign: 'left'}}>
+                    <a href={"#"} style={boardblockStyle.title}>
+                        {board.board_title}
+                    </a>
+                </Col>
+                <Col sm={4}>
+                    {board.board_content}
+                </Col>
+            </Row>
+
+
+            <div style={boardblockStyle.bottom}>{/* 보더블록 하단 : 태그 내용들 */}
+                <span style={tagStyle}>React</span>
+                <span style={tagStyle}>Javascript</span>
+            </div>
+        </Col>
+    </Row>
+    )
+}
+
+/********** 컴포넌트 스타일 ***********/
 
 /**
  * @comment 보더 리스트 블록 전체 스타일
@@ -18,7 +59,7 @@ const boardList: CSSProperties = {
 }
 
 /**
- * @comment 태그 블록 스타일
+ * @comment 태그 외부(전체) 스타일
  * */
 const tagStyle: CSSProperties = {
     borderRadius: '5px',
@@ -32,32 +73,52 @@ const tagStyle: CSSProperties = {
 }
 
 /**
- * @comment 블록안 간격 스타일
+ * @comment 블록 내부 스타일 모음
  * */
-const rowStyle: CSSProperties = {
-    margin: '10px 0'
-}
-const BoardBlock = () => {
-    return(
-    <Row style={{width:'870px', margin: '0 auto'}}>
-        <Col style={boardList}>
-            <Row style={rowStyle}>{/* 작성자, 조회수, 작성일 표시 */}
-                <Col sm={2}>작성자</Col>
-                <Col sm={2}>✨920</Col>
-                <Col sm={4}></Col>
-                <Col sm={4} style={{textAlign:'right'}}>2023.01.28</Col>
-            </Row>
+const boardblockStyle = {
+    /*@ 블록끼리의 상하 간격 */
+    rowStyle: {
+        margin: '10px 0'
+    } as React.CSSProperties
+    ,
+    /*@ 블록 상단(작성자, 조회수, 작성일) */
+    top: {
+        textAlign: 'left'
+    } as React.CSSProperties
+    ,
+    /*@ 블록 중단(게시글 제목) */
+    mid: {
 
-            <Row style={rowStyle}>{/* 게시물 제목 표시 */}
-                <Col sm={8} style={{ paddingBottom: '10px' }}><a href={"#"} style={{fontSize: '20px', fontWeight: 'bold', color:'#333', textDecoration: 'none'}}>게시물 제목</a></Col>
-                <Col sm={4}></Col>
-            </Row>
+    } as React.CSSProperties
+    ,
+    /*@ 블록 하단(태그 부분) */
+    bottom: {
+        textAlign: 'left'
+    } as React.CSSProperties
+    ,
+    /*@ 게시글 제목 스타일 */
+    title: {
+        fontSize: '20px',
+        fontWeight: 'bold',
+        color:'#333',
+        textDecoration: 'none'
+    } as React.CSSProperties
+    ,
+    /*@ 작성자 스타일 */
+    writer: {
+        fontSize: '16px',
+        fontWeight: '600',
+        marginRight: '10px',
 
-            {/* 태그 내용들 */}
-            <span style={tagStyle}>React</span>
-            <span style={tagStyle}>Javascript</span>
-        </Col>
-    </Row>
-    )
+    } as React.CSSProperties
+    ,
+    /*@ 작성일 */
+    created: {
+        fontSize: '12px',
+        color:'#999',
+    } as React.CSSProperties
+
+
 }
+
 export default BoardBlock;
