@@ -1,8 +1,7 @@
 import Github from "./Github";
 import {Button, Container, Form} from "react-bootstrap";
 import React from "react";
-import axios from "axios/index";
-import {GithubProfile} from "../types/GithubProfile";
+import axios from "axios";
 
 const Login = () => {
 
@@ -31,6 +30,7 @@ const Login = () => {
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
+                    <Button onClick={loginTest}>TEST</Button>
                 </Form>
                 <Github/>{/* axios 테스트 */}
             </Container>
@@ -38,11 +38,16 @@ const Login = () => {
     )
 }
 const loginTest = async() => {
+
     // Generic 을 통해 응답 데이터의 타입을 설정 할 수 있습니다.
-    const response = await axios.post(
-        `http://localhost:8080/api/setboard`
-    );
-    console.log(response.data);
-    return response.data; // 데이터 값을 바로 반환하도록 처리
+    await axios.post(
+        `http://localhost:8080/api/board/setboard`,
+        { id: 'testId', pw: 'testPw' }
+    ).then(function (res){
+        console.log(res.data);
+    }).catch(function (err){
+        console.log(err)
+    });
+
 }
 export default Login;
