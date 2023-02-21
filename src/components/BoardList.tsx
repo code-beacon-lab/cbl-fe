@@ -3,7 +3,7 @@ import BoardBlock from "./BoardBlock";
 import {useSelector} from "react-redux";
 import {ReducerType} from "../Redux/rootReducer";
 import axios from "axios";
-import {Board} from "../Redux/Slices/board";
+import {Board} from "../Redux/Slices/boardSlice";
 
 const BoardList = () => {
 
@@ -23,7 +23,7 @@ const BoardList = () => {
     /**
      * @Comment 게시물 받아오기(Redux)
      * */
-    const board = useSelector<ReducerType, Board[]>(state => state.board);
+    const board = useSelector<ReducerType, Board[]>(state => state.boards);
 
     return(
         <>

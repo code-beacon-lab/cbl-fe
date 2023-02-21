@@ -38,3 +38,23 @@ npm run start
 | `Bootstrap`       | 5.2.3       |                             |
 | `React-Bootstrap` | 2.7.0       |                             |
 | `styled-component`| 5.3.6       |                             |
+
+
+## 피드백
+### 프론트 부분
+  - 타입스크립트 + 리덕스 툴킷를 사용하려면
+    - [ ] store.ts 설징, hooks.ts 설정이 필수
+    - [ ] 공식 문서 참고 : https://redux-toolkit.js.org/tutorials/quick-start
+  - 리덕스 툴킷
+    - 동기 설정 => 리덕스 툴킷 bulit-in 함수 
+  - mock data 사용 시 -> JSON Server 검토
+  - 로그인 토큰
+    - 액세스 가지고 있고, 리프레시를 http only cookie로 처리
+  - 뒤로가기 방지 처리
+    - react router dom -> use navigate?
+    - history를 조정하는 기능 
+  - store에 있는 값을 접근할때  useAppSelector(타입스크립트를 쓰기 때문에 이걸 사용)
+  
+### CSS 부분
+  - 피그마, 부트스트랩(커스텀이 불편할 수 있음)
+  - 

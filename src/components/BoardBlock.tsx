@@ -1,6 +1,6 @@
 import {Col, Row} from "react-bootstrap";
 import {CSSProperties} from "react";
-import {Board} from "../Redux/Slices/board";
+import {Board} from "../Redux/Slices/boardSlice";
 
 const BoardBlock = ({board}:{board: Board}) => {
 
