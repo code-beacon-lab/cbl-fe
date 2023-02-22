@@ -55,6 +55,7 @@ npm run start
     - history를 조정하는 기능 
   - store에 있는 값을 접근할때  useAppSelector(타입스크립트를 쓰기 때문에 이걸 사용)
   - 훅을 꼭 사용해야하는 지 잘 모르겠음
+    - https://github.com/christofferbergj/react-redux-toolkit-example/blob/master/src/features/users/usersSlice.ts
 ### CSS 부분
   - 피그마, 부트스트랩(커스텀이 불편할 수 있음)
   - 
