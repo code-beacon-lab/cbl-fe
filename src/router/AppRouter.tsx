@@ -19,8 +19,8 @@ const AppRouter = () => {
                 <div style={styles.spaceTop}></div>
                 <Routes>
                     <Route path={"/"} element={<Main/>} />
-                    <Route path={"/board"} element={<BoardList/>} />
                     <Route path={"/login"} element={<Login/>} />
+                    <Route path={"/board"} element={<BoardList/>} />
                     <Route path={"/study"} element={<TestForm/>} />
                     <Route path={"/community"} element={<Community/>} />
                 </Routes>

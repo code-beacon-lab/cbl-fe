@@ -6,6 +6,7 @@
 <br/>
 
 ## 실행 환경
+- https://github.com/nvm-sh/nvm
 - **`Node`  16.16.0**
 - **`npm`  9.2.0**
 <br/><br/>
