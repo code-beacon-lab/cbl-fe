@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import {Provider} from 'react-redux'; // Provider로 store를 감싸주어야 함
+
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {Provider} from "react-redux";
-import store from "./Redux/store";
+import store from "./Redux/store";    // Redux 전역 store
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
     <React.StrictMode>
         <Provider store={store}>

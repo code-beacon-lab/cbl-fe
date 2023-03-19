@@ -1,11 +1,14 @@
-import {Button, Container, Pagination, Row} from "react-bootstrap";
+import { Container, Pagination, Row} from "react-bootstrap";
 import BoardBlock from "./BoardBlock";
-import {useSelector} from "react-redux";
-import {ReducerType} from "../Redux/rootReducer";
-import axios from "axios";
-import {Board} from "../Redux/Slices/board";
+import {useAppDispatch, useAppSelector} from "../../Redux/hooks";
 
 const BoardList = () => {
+    /**
+     * @Comment 게시물 받아오기(Redux)
+     * */
+    const dispatch = useAppDispatch();
+    const boards = useAppSelector((state) => state.boards.boards);
+    const isLoading = useAppSelector((state) => state.boards.isLoading);
 
     /**
     * @Comment 페이징 처리
@@ -20,27 +23,22 @@ const BoardList = () => {
         );
     }
 
-    /**
-     * @Comment 게시물 받아오기(Redux)
-     * */
-    const board = useSelector<ReducerType, Board[]>(state => state.board);
-
-    return(
+    return (
         <>
+            {isLoading && <div>Loading...</div>}
             <Container fluid={"sm"}>
                 <h2 style={{borderBottom:'1px solid #D2D4D9', paddingBlock: '5px', textAlign: 'left'}}>게시판 화면</h2>
-                <Button onClick={getBoardList}>호출</Button>
+                {/*<Button onClick={getBoardList}>호출</Button>*/}
 
                 {/* 게시물 내용 */}
                 {
-                    board.map( board =>
+                    boards.map((board) =>
                         <BoardBlock
-                            key={board.board_no}    /* Key는 필수 */
+                            key={board.boardNo}    /* Key는 필수 */
                             board={board}           /* 받아온 게시물 리스트 반복 */
                         />
                     )
                 }
-
 
                 {/* 페이징 버튼 */}
                 <Row>
@@ -52,20 +50,11 @@ const BoardList = () => {
                         <Pagination.Last />
                     </Pagination>
                 </Row>
-
-
             </Container>
         </>
     )
 }
 
 // Axios 테스트 (CBI-API 첫 통신)
-const getBoardList = async() => {
-    // Generic 을 통해 응답 데이터의 타입을 설정 할 수 있습니다.
-    const response = await axios.get<Board>(
-        `http://localhost:8080/api/board/selectlist`
-    );
-    console.log(response.data);
-    return response.data; // 데이터 값을 바로 반환하도록 처리
-}
+
 export default BoardList;

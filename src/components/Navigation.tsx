@@ -1,6 +1,5 @@
 import {useState} from 'react';
-import {Button, Container, Nav, Navbar} from "react-bootstrap";
-
+import {Button, Container, Nav, Navbar} from 'react-bootstrap';
 const Navigation = () => {
     const logo = require("../assets/images/logo.png");
     const [isLoggedIn, setIsLoggedIn] = useState<Boolean>(false);
@@ -31,7 +30,6 @@ const Navigation = () => {
                     </Nav>
 
                     <Nav>
-
                         {/* 검색 폼 */}
                         {/*<Form className="d-flex">*/}
                         {/*    <Form.Control*/}
@@ -56,9 +54,7 @@ const Navigation = () => {
                             </>
                         )
                         }
-
                     </Nav>
-
                 </Container>
             </Navbar>
         </>
