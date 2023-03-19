@@ -1,6 +1,6 @@
 import { Container, Pagination, Row} from "react-bootstrap";
 import BoardBlock from "./BoardBlock";
-import {useAppDispatch, useAppSelector} from "../Redux/hooks";
+import {useAppDispatch, useAppSelector} from "../../Redux/hooks";
 
 const BoardList = () => {
     /**

@@ -1,9 +1,8 @@
-// styled Component, Redux Example
 import styled, {css} from "styled-components";
 import React, {FormEvent, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {ReducerType} from "../Redux/rootReducer";
-import {addUser, User} from "../Redux/Slices/users";
+import {ReducerType} from "../../Redux/rootReducer";
+import {addUser, User} from "../../Redux/Slices/users";
 import {Button, Container, Form, InputGroup} from "react-bootstrap";
 
 // styled Component 사용 방법
@@ -20,7 +19,7 @@ let StyledTestForm = styled.div<{ done: boolean }>` /* typescript에서 사용 �
     `}
 `;
 
-const TestForm = () => {
+const Study = () => {
 
   const users = useSelector<ReducerType, User[]>(state=> state.users);
   const dispatch = useDispatch();
@@ -69,4 +68,4 @@ const TestForm = () => {
   )
 }
 
-export default TestForm;
+export default Study;

@@ -2,7 +2,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface Board {
+export interface Board {
     boardTitle: string; // 게시물 제목
     boardNo: number; // 게시물 번호
     boardComment: string; // 게시물 댓글

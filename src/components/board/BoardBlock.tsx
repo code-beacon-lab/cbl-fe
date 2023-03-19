@@ -1,42 +1,41 @@
 import {Col, Row} from "react-bootstrap";
 import {CSSProperties} from "react";
-import {Board} from "../Redux/Slices/boardSlice";
+import {Board} from "../../Redux/Slices/boardSlice";
 
 const BoardBlock = ({board}:{board: Board}) => {
+    return (
+        <Row style={{ margin: '0 auto'}}>
+            <Col style={boardList}>
+                <Row style={boardblockStyle.rowStyle}>{/* 보더블록 상단 : 작성자, 조회수, 작성일 표시 */}
+                    <Col sm={10} style={{ textAlign: 'left'}}>
+                        <span>{board.boardNo}</span>
+                        <span style={boardblockStyle.writer}>
+                            작성자 : {board.boardComment}
+                        </span>
+                        <span>✨920</span>
+                    </Col>
 
-    return(
-    <Row style={{ margin: '0 auto'}}>
-        <Col style={boardList}>
-            <Row style={boardblockStyle.rowStyle}>{/* 보더블록 상단 : 작성자, 조회수, 작성일 표시 */}
-                <Col sm={10} style={{ textAlign: 'left'}}>
-                    <span>{board.board_no}</span>
-                    <span style={boardblockStyle.writer}>
-                        작성자 : {board.board_comment}
-                    </span>
-                    <span>✨920</span>
-                </Col>
+                    <Col sm={2} style={{}}>2023.01.28</Col>
+                </Row>
 
-                <Col sm={2} style={{}}>2023.01.28</Col>
-            </Row>
-
-            <Row style={boardblockStyle.rowStyle}>{/* 보더블록 중단 : 게시물 제목 표시 */}
-                <Col sm={8} style={{ paddingBottom: '10px', textAlign: 'left'}}>
-                    <a href={"#"} style={boardblockStyle.title}>
-                        {board.board_title}
-                    </a>
-                </Col>
-                <Col sm={4}>
-                    {board.board_content}
-                </Col>
-            </Row>
+                <Row style={boardblockStyle.rowStyle}>{/* 보더블록 중단 : 게시물 제목 표시 */}
+                    <Col sm={8} style={{ paddingBottom: '10px', textAlign: 'left'}}>
+                        <a href={"#"} style={boardblockStyle.title}>
+                            {board.boardTitle}
+                        </a>
+                    </Col>
+                    <Col sm={4}>
+                        {board.boardContent}
+                    </Col>
+                </Row>
 
 
-            <div style={boardblockStyle.bottom}>{/* 보더블록 하단 : 태그 내용들 */}
-                <span style={tagStyle}>React</span>
-                <span style={tagStyle}>Javascript</span>
-            </div>
-        </Col>
-    </Row>
+                <div style={boardblockStyle.bottom}>{/* 보더블록 하단 : 태그 내용들 */}
+                    <span style={tagStyle}>React</span>
+                    <span style={tagStyle}>Javascript</span>
+                </div>
+            </Col>
+        </Row>
     )
 }
 
